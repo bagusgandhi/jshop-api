@@ -1,13 +1,6 @@
-import fastify, { FastifyInstance, RawServerDefault, FastifyPluginOptions } from 'fastify';
+import { FastifyInstance } from 'fastify';
+import { routes } from './routes';
 
-const app = fastify({
-  logger: true,
-});
-
-export default async function name(
-  instance: FastifyInstance<RawServerDefault>, 
-  opts: FastifyPluginOptions, 
-  done: (err?: Error | undefined) => void
-) {
-  return app;
+export default async function app(fastify: FastifyInstance) {
+  fastify.register(routes);
 }
