@@ -1,12 +1,12 @@
-import { dbconn } from "../config/dbconn"
+import { dbconn } from "../config/db/dbconn";
 
 async function testDatabaseConnection() {
   try {
-    const result = await dbconn.one('SELECT NOW() AS current_time');
-    console.info('DB Conn successful!');
-    console.info('date:', result.current_time);
+    const result = await dbconn.one("SELECT NOW() AS current_time");
+    console.info("DB Conn successful!");
+    console.info("date:", result.current_time);
   } catch (error) {
-    console.error('Failed to connect :', error);
+    console.error("Failed to connect :", error);
   } finally {
     dbconn.$pool.end();
   }
