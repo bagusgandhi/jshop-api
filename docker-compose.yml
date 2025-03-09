@@ -1,0 +1,15 @@
+services:
+  jshop_api:
+    container_name: jshop_api
+    build: .
+    ports:
+      - "8093:8093"
+    restart: always
+    env_file:
+      - .env
+#     networks:
+#       - vhioshop
+
+# networks:
+#   vhioshop:
+#     external: true
